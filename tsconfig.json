@@ -1,24 +1,15 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": ["@tsconfig/strictest/tsconfig", "@tsconfig/recommended/tsconfig"],
   "compilerOptions": {
-    "baseUrl": ".",
-    "declaration": false,
-    "esModuleInterop": true,
     "importHelpers": true,
-    "lib": ["esnext"],
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "noEmitHelpers": true,
-    "outDir": "build",
-    "paths": {},
-    "removeComments": true,
-    "skipLibCheck": true,
+    "outDir": "./dist",
     "sourceMap": false,
-    "strict": true,
-    "target": "es2018"
+    "lib": ["es2022"]
   },
-  "exclude": [],
-  "include": [
-    "source/**/*.ts",
-    "tests/**/*.ts"
-  ]
+  "include": ["src/**/*.ts"],
+  "exclude": ["**/*.test.ts"]
 }
