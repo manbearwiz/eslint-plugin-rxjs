@@ -11,7 +11,7 @@ const defaultOptions: readonly {
 
 type MessageIds = 'forbidden';
 
-export = ruleCreator<typeof defaultOptions, MessageIds>({
+const rule = ruleCreator<typeof defaultOptions, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
@@ -88,13 +88,16 @@ export = ruleCreator<typeof defaultOptions, MessageIds>({
         }
         observer += ' }';
 
-        yield fixer.replaceText(callExpression.arguments[0], observer);
+        // biome-ignore lint/style/noNonNullAssertion: <explanation>
+        yield fixer.replaceText(callExpression.arguments[0]!, observer);
 
-        const [, start] = callExpression.arguments[0].range;
+        // biome-ignore lint/style/noNonNullAssertion: <explanation>
+        const [, start] = callExpression.arguments[0]!.range;
         const [, end] =
           callExpression.arguments[callExpression.arguments.length - 1]
             ?.range ?? [];
-        yield fixer.removeRange([start, end]);
+        // biome-ignore lint/style/noNonNullAssertion: <explanation>
+        yield fixer.removeRange([start, end!]);
       }
 
       if (args.length > 1) {
@@ -145,3 +148,5 @@ export = ruleCreator<typeof defaultOptions, MessageIds>({
 function isValidArgText(argText: string) {
   return argText && argText !== 'undefined' && argText !== 'null';
 }
+
+export = rule;

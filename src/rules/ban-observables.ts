@@ -1,4 +1,4 @@
-import type { TSESTree as es } from '@typescript-eslint/utils';
+import { AST_NODE_TYPES, type TSESTree as es } from '@typescript-eslint/utils';
 import { stripIndent } from 'common-tags';
 import { ruleCreator } from '../utils';
 
@@ -10,7 +10,7 @@ type MessageIds = keyof typeof messages;
 
 const defaultOptions: Options = [{}];
 
-export = ruleCreator<Options, MessageIds>({
+const rule = ruleCreator<Options, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
@@ -66,7 +66,11 @@ export = ruleCreator<Options, MessageIds>({
         node: es.ImportSpecifier,
       ) => {
         const identifier = node.imported;
-        const failure = getFailure(identifier.name);
+        const name =
+          identifier.type === AST_NODE_TYPES.Identifier
+            ? identifier.name
+            : identifier.raw;
+        const failure = getFailure(name);
         if (failure) {
           context.report({
             ...failure,
@@ -77,3 +81,5 @@ export = ruleCreator<Options, MessageIds>({
     };
   },
 });
+
+export = rule;

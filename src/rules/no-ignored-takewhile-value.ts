@@ -7,7 +7,7 @@ type MessageIds = 'forbidden';
 
 const defaultOptions: Options = [{}];
 
-export = ruleCreator<Options, MessageIds>({
+const rule = ruleCreator<Options, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
@@ -83,3 +83,5 @@ function isImport(
   }
   return scope.upper ? isImport(scope.upper, name, source) : false;
 }
+
+export = rule;

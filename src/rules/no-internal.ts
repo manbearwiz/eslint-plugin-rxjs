@@ -9,7 +9,7 @@ type MessageIds = 'forbidden' | 'suggest';
 
 const defaultOptions: Options = [{}];
 
-export = ruleCreator<Options, MessageIds>({
+const rule = ruleCreator<Options, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
@@ -85,3 +85,5 @@ export = ruleCreator<Options, MessageIds>({
     };
   },
 });
+
+export = rule;

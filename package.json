@@ -12,7 +12,12 @@
     "type": "git",
     "url": "git+https://github.com/manbearwiz/eslint-plugin-rxjs.git"
   },
-  "keywords": ["lint", "rules", "eslint", "rxjs"],
+  "keywords": [
+    "lint",
+    "rules",
+    "eslint",
+    "rxjs"
+  ],
   "scripts": {
     "test": "vitest run",
     "watch-tests": "vitest --watch --ui",
@@ -25,7 +30,7 @@
   "dependencies": {
     "@typescript-eslint/utils": "^8.8.1",
     "common-tags": "^1.8.2",
-    "decamelize": "^6.0.0",
+    "decamelize": "^5.0.1",
     "rxjs": "^7.8.1",
     "tsutils-etc": "^1.4.2"
   },
@@ -33,7 +38,7 @@
     "@biomejs/biome": "1.9.3",
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-angular": "^19.0.3",
-    "@tsconfig/recommended": "^1.0.7",
+    "@tsconfig/node18": "^18.2.4",
     "@tsconfig/strictest": "^2.0.5",
     "@types/common-tags": "^1.8.4",
     "@types/node": "^22.7.5",
@@ -51,9 +56,15 @@
     "eslint": "^8.0.0",
     "typescript": ">=4.7.4 <5.6.0"
   },
-  "files": ["dist", "docs"],
+  "files": [
+    "dist",
+    "docs"
+  ],
   "main": "./dist/index.js",
   "release": {
-    "branches": ["main"]
-  }
+    "branches": [
+      "main"
+    ]
+  },
+  "type": "commonjs"
 }

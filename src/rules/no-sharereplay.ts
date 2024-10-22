@@ -7,7 +7,7 @@ const defaultOptions: readonly {
 
 type MessageIds = 'forbidden' | 'forbiddenWithoutConfig';
 
-export = ruleCreator<typeof defaultOptions, MessageIds>({
+const rule = ruleCreator<typeof defaultOptions, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
@@ -54,3 +54,5 @@ export = ruleCreator<typeof defaultOptions, MessageIds>({
     };
   },
 });
+
+export = rule;

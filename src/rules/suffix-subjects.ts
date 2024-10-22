@@ -12,7 +12,7 @@ const defaultOptions: readonly {
 
 type MessageIds = 'forbidden';
 
-export = ruleCreator<typeof defaultOptions, MessageIds>({
+const rule = ruleCreator<typeof defaultOptions, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
@@ -224,6 +224,8 @@ export = ruleCreator<typeof defaultOptions, MessageIds>({
     };
   },
 });
+
+export = rule;
 
 function escapeRegExp(text: string): string {
   // https://stackoverflow.com/a/3561711/6680611
