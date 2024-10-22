@@ -2,11 +2,12 @@ import type { TSESTree as es } from '@typescript-eslint/utils';
 import { ruleCreator } from '../utils';
 
 type Options = readonly Record<string, boolean | string>[];
-type MessageIds = 'forbidden';
-
+const messages = {
+  forbidden: 'Use just alias.',
+};
 const defaultOptions: Options = [{}];
 
-const rule = ruleCreator<Options, MessageIds>({
+const rule = ruleCreator<Options, keyof typeof messages>({
   defaultOptions,
   meta: {
     docs: {
@@ -15,9 +16,7 @@ const rule = ruleCreator<Options, MessageIds>({
     },
     fixable: 'code',
     hasSuggestions: false,
-    messages: {
-      forbidden: 'Use just alias.',
-    },
+    messages,
     schema: [],
     type: 'problem',
   },
