@@ -5,11 +5,13 @@ import type {
 import { ruleCreator } from '../utils';
 
 type Options = readonly Record<string, boolean | string>[];
-type MessageIds = 'forbidden' | 'suggest';
-
+const messages = {
+  forbidden: 'RxJS imports from internal are forbidden.',
+  suggest: 'Import from a non-internal location.',
+};
 const defaultOptions: Options = [{}];
 
-const rule = ruleCreator<Options, MessageIds>({
+const rule = ruleCreator<Options, keyof typeof messages>({
   defaultOptions,
   meta: {
     docs: {
@@ -18,10 +20,7 @@ const rule = ruleCreator<Options, MessageIds>({
     },
     fixable: 'code',
     hasSuggestions: true,
-    messages: {
-      forbidden: 'RxJS imports from internal are forbidden.',
-      suggest: 'Import from a non-internal location.',
-    },
+    messages,
     schema: [],
     type: 'problem',
   },

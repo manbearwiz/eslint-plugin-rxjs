@@ -3,11 +3,12 @@ import { getLoc, getParserServices } from '../etc';
 import { getTypeServices, ruleCreator } from '../utils';
 
 type Options = readonly Record<string, boolean | string>[];
-type MessageIds = 'forbidden';
-
+const messages = {
+  forbidden: 'Finnish notation is forbidden.',
+};
 const defaultOptions: Options = [{}];
 
-const rule = ruleCreator<Options, MessageIds>({
+const rule = ruleCreator<Options, keyof typeof messages>({
   defaultOptions,
   meta: {
     docs: {
@@ -15,9 +16,7 @@ const rule = ruleCreator<Options, MessageIds>({
       recommended: false,
     },
     hasSuggestions: false,
-    messages: {
-      forbidden: 'Finnish notation is forbidden.',
-    },
+    messages,
     schema: [],
     type: 'problem',
   },

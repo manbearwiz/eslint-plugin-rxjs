@@ -3,11 +3,12 @@ import { stripIndent } from 'common-tags';
 import { ruleCreator } from '../utils';
 
 type Options = readonly Record<string, boolean | string>[];
-type MessageIds = 'forbidden';
-
+const messages = {
+  forbidden: 'RxJS operator is banned: {{name}}{{explanation}}.',
+};
 const defaultOptions: Options = [{}];
 
-const rule = ruleCreator<Options, MessageIds>({
+const rule = ruleCreator<Options, keyof typeof messages>({
   defaultOptions,
   meta: {
     docs: {
@@ -15,9 +16,7 @@ const rule = ruleCreator<Options, MessageIds>({
       recommended: false,
     },
     hasSuggestions: false,
-    messages: {
-      forbidden: 'RxJS operator is banned: {{name}}{{explanation}}.',
-    },
+    messages,
     schema: [
       {
         type: 'object',
