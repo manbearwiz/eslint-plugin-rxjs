@@ -1,4 +1,4 @@
-# eslint-plugin-rxjs
+# @manbearwiz/eslint-plugin-rxjs
 
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/cartant/eslint-plugin-rxjs/blob/master/LICENSE)
 [![NPM version](https://img.shields.io/npm/v/eslint-plugin-rxjs.svg)](https://www.npmjs.com/package/eslint-plugin-rxjs)
@@ -25,7 +25,7 @@ npm install @typescript-eslint/parser --save-dev
 Install the package using npm:
 
 ```
-npm install eslint-plugin-rxjs --save-dev
+npm install @manbearwiz/eslint-plugin-rxjs --save-dev
 ```
 
 Configure the `parser` and the `parserOptions` for ESLint. Here, I use a `.eslintrc.js` file for the configuration:
