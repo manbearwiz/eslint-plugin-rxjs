@@ -102,7 +102,8 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
         return;
       }
       const shouldBeFinnish = hasFinnish
-        ? () => {}
+        ? // biome-ignore lint/suspicious/noEmptyBlockStatements: <explanation>
+          () => {}
         : () =>
             context.report({
               loc: getLoc(tsNode),
@@ -114,7 +115,8 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
               loc: getLoc(tsNode),
               messageId: 'shouldNotBeFinnish',
             })
-        : () => {};
+        : // biome-ignore lint/suspicious/noEmptyBlockStatements: <explanation>
+          () => {};
       if (
         couldBeObservable(typeNode || nameNode) ||
         couldReturnObservable(typeNode || nameNode)
