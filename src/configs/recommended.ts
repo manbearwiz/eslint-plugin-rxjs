@@ -1,6 +1,7 @@
 import type { ClassicConfig } from '@typescript-eslint/utils/ts-eslint';
 
 export = {
+  plugins: ['@manbearwiz/eslint-plugin-rxjs'],
   rules: {
     '@manbearwiz/rxjs/no-async-subscribe': 'error',
     '@manbearwiz/rxjs/no-create': 'error',

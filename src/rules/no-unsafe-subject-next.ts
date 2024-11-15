@@ -6,7 +6,7 @@ import {
 import * as tsutils from 'tsutils';
 import { couldBeType, isReferenceType, isUnionType } from 'tsutils-etc';
 import ts from 'typescript';
-import { getTypeServices, ruleCreator } from '../utils';
+import { ruleCreator } from '../utils';
 
 type Options = readonly Record<string, boolean | string>[];
 const messages = {
@@ -28,8 +28,9 @@ const rule = ruleCreator<Options, keyof typeof messages>({
   },
   name: 'no-unsafe-subject-next',
   create: (context) => {
-    const { esTreeNodeToTSNodeMap } = ESLintUtils.getParserServices(context);
-    const { typeChecker } = getTypeServices(context);
+    const { esTreeNodeToTSNodeMap, program } =
+      ESLintUtils.getParserServices(context);
+    const typeChecker = program.getTypeChecker();
     return {
       [`CallExpression[callee.property.name='next']`]: (
         node: es.CallExpression,

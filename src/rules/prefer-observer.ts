@@ -16,7 +16,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
   meta: {
     docs: {
       description:
-        'Disallow the passing separate handlers to `subscribe` and `tap`.',
+        'Disallow passing separate handlers to `subscribe` and `tap`.',
       recommended: false,
     },
     fixable: 'code',
@@ -28,7 +28,11 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
     schema: [
       {
         properties: {
-          allowNext: { type: 'boolean' },
+          allowNext: {
+            type: 'boolean',
+            description: 'Allows a single `next` callback.',
+            default: true,
+          },
         },
         type: 'object',
       },
@@ -51,7 +55,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
       }
 
       function* fix(fixer: eslint.RuleFixer) {
-        const sourceCode = context.getSourceCode();
+        const sourceCode = context.sourceCode;
         const [nextArg, errorArg, completeArg] = args;
         const nextArgText = nextArg ? sourceCode.getText(nextArg) : '';
         const errorArgText = errorArg ? sourceCode.getText(errorArg) : '';

@@ -1,4 +1,8 @@
-import { AST_NODE_TYPES, type TSESTree as es } from '@typescript-eslint/utils';
+import {
+  AST_NODE_TYPES,
+  ESLintUtils,
+  type TSESTree as es,
+} from '@typescript-eslint/utils';
 import { getTypeServices, ruleCreator } from '../utils';
 
 type Options = readonly Record<string, boolean | string>[];
@@ -22,15 +26,15 @@ const rule = ruleCreator<Options, MessageIds>({
   },
   name: 'no-unbound-methods',
   create: (context) => {
-    const { couldBeObservable, couldBeSubscription, getType } =
-      getTypeServices(context);
+    const { getTypeAtLocation } = ESLintUtils.getParserServices(context);
+    const { couldBeObservable, couldBeSubscription } = getTypeServices(context);
     const nodeMap = new WeakMap<es.Node, void>();
 
     function mapArguments(node: es.CallExpression | es.NewExpression) {
       node.arguments
         .filter((a) => a.type === AST_NODE_TYPES.MemberExpression)
         .forEach((arg) => {
-          const argType = getType(arg);
+          const argType = getTypeAtLocation(arg);
           if (argType.getCallSignatures().length > 0) {
             nodeMap.set(arg);
           }

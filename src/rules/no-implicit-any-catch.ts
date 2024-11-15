@@ -61,6 +61,9 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
         properties: {
           allowExplicitAny: {
             type: 'boolean',
+            description:
+              'Allow error variable to be explicitly typed as `any`.',
+            default: false,
           },
         },
         type: 'object',
@@ -73,16 +76,14 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
     const [config = {}] = context.options;
     const { allowExplicitAny = false } = config;
     const { couldBeObservable } = getTypeServices(context);
-    const sourceCode = context.getSourceCode();
+    const sourceCode = context.sourceCode;
 
     function checkCallback(callback: es.Node) {
       if (
         callback.type === AST_NODE_TYPES.ArrowFunctionExpression ||
         callback.type === AST_NODE_TYPES.FunctionExpression
       ) {
-        const params = callback.params;
-        // biome-ignore lint/style/noNonNullAssertion: <explanation>
-        const param = params[0]!;
+        const [param] = callback.params;
         if (!param) {
           return;
         }
@@ -169,10 +170,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
           const [observer, callback] = node.arguments;
           if (callback) {
             checkCallback(callback);
-          } else if (
-            observer &&
-            observer.type === AST_NODE_TYPES.ObjectExpression
-          ) {
+          } else if (observer?.type === AST_NODE_TYPES.ObjectExpression) {
             const errorProperty = observer.properties.find(
               (property) =>
                 property.type === AST_NODE_TYPES.Property &&

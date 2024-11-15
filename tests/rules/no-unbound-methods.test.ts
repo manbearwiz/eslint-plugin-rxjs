@@ -4,10 +4,11 @@ import * as rule from '../../src/rules/no-unbound-methods';
 import { fromFixture, ruleTester } from '../utils';
 
 interface Tests {
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  valid: (string | eslint.ValidTestCase<any>)[];
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  invalid: eslint.InvalidTestCase<any, any>[];
+  valid: (string | eslint.ValidTestCase<never>)[];
+  invalid: eslint.InvalidTestCase<
+    keyof (typeof rule)['meta']['messages'],
+    never
+  >[];
 }
 
 const arrowTests: Tests = {

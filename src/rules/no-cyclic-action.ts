@@ -1,8 +1,12 @@
-import { AST_NODE_TYPES, type TSESTree as es } from '@typescript-eslint/utils';
+import {
+  AST_NODE_TYPES,
+  ESLintUtils,
+  type TSESTree as es,
+} from '@typescript-eslint/utils';
 import { stripIndent } from 'common-tags';
 import ts from 'typescript';
 import { defaultObservable } from '../constants';
-import { getTypeServices, ruleCreator } from '../utils';
+import { ruleCreator } from '../utils';
 
 function isTypeReference(type: ts.Type): type is ts.TypeReference {
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
@@ -19,7 +23,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Disallow effects and epics that re-emit filtered actions.',
+      description: 'Disallow cyclic actions in effects and epics.',
       recommended: false,
     },
     hasSuggestions: false,
@@ -30,7 +34,12 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
     schema: [
       {
         properties: {
-          observable: { type: 'string' },
+          observable: {
+            type: 'string',
+            description:
+              "A RegExp that matches an effect or epic's actions observable.",
+            default: defaultObservable,
+          },
         },
         type: 'object',
         description: stripIndent`
@@ -46,7 +55,9 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
     const { observable = defaultObservable } = config;
     const observableRegExp = new RegExp(observable);
 
-    const { getType, typeChecker } = getTypeServices(context);
+    const { getTypeAtLocation, program } =
+      ESLintUtils.getParserServices(context);
+    const typeChecker = program.getTypeChecker();
 
     function checkNode(pipeCallExpression: es.CallExpression) {
       const operatorCallExpression = pipeCallExpression.arguments.find(
@@ -58,7 +69,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
       if (!operatorCallExpression) {
         return;
       }
-      const operatorType = getType(operatorCallExpression);
+      const operatorType = getTypeAtLocation(operatorCallExpression);
       const [signature] = typeChecker.getSignaturesOfType(
         operatorType,
         ts.SignatureKind.Call,
@@ -77,7 +88,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
         return;
       }
 
-      const pipeType = getType(pipeCallExpression);
+      const pipeType = getTypeAtLocation(pipeCallExpression);
       if (!isTypeReference(pipeType)) {
         return;
       }
@@ -108,7 +119,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
         return memberActionTypes;
       }
       const symbol = typeChecker.getPropertyOfType(type, 'type');
-      if (!symbol || !symbol.valueDeclaration) {
+      if (!symbol?.valueDeclaration) {
         return [];
       }
       const actionType = typeChecker.getTypeOfSymbolAtLocation(

@@ -9,6 +9,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
         // arrow; no parameter
         import { throwError } from "rxjs";
         import { catchError } from "rxjs/operators";
+
         throwError("Kaboom!").pipe(
           catchError(() => console.error("Whoops!"))
         );
@@ -19,6 +20,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
         // non-arrow; no parameter
         import { throwError } from "rxjs";
         import { catchError } from "rxjs/operators";
+
         throwError("Kaboom!").pipe(
           catchError(function () { console.error("Whoops!"); })
         );
@@ -29,6 +31,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
         // arrow; explicit unknown; default option
         import { throwError } from "rxjs";
         import { catchError } from "rxjs/operators";
+
         throwError("Kaboom!").pipe(
           catchError((error: unknown) => console.error(error))
         );
@@ -39,6 +42,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
         // non-arrow; explicit unknown; default option
         import { throwError } from "rxjs";
         import { catchError } from "rxjs/operators";
+
         throwError("Kaboom!").pipe(
           catchError(function (error: unknown) { console.error(error); })
         );
@@ -49,6 +53,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
         // arrow; explicit unknown; explicit option
         import { throwError } from "rxjs";
         import { catchError } from "rxjs/operators";
+
         throwError("Kaboom!").pipe(
           catchError((error: unknown) => console.error(error))
         );
@@ -60,6 +65,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
         // non-arrow; explicit unknown; explicit option
         import { throwError } from "rxjs";
         import { catchError } from "rxjs/operators";
+
         throwError("Kaboom!").pipe(
           catchError(function (error: unknown) { console.error(error); })
         );
@@ -71,6 +77,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
         // arrow; explicit any
         import { throwError } from "rxjs";
         import { catchError } from "rxjs/operators";
+
         throwError("Kaboom!").pipe(
           catchError((error: any) => console.error(error))
         );
@@ -82,6 +89,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
         // non-arrow; explicit any
         import { throwError } from "rxjs";
         import { catchError } from "rxjs/operators";
+
         throwError("Kaboom!").pipe(
           catchError(function (error: any) { console.error(error); })
         );
@@ -92,6 +100,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
       code: stripIndent`
         // subscribe; arrow; explicit unknown; default option
         import { throwError } from "rxjs";
+
         throwError("Kaboom!").subscribe(
           undefined,
           (error: unknown) => console.error(error)
@@ -102,6 +111,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
       code: stripIndent`
         // subscribe; arrow; explicit any
         import { throwError } from "rxjs";
+
         throwError("Kaboom!").subscribe(
           undefined,
           (error: any) => console.error(error)
@@ -113,6 +123,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
       code: stripIndent`
         // subscribe observer; arrow; explicit unknown; default option
         import { throwError } from "rxjs";
+
         throwError("Kaboom!").subscribe({
           error: (error: unknown) => console.error(error)
         });
@@ -122,6 +133,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
       code: stripIndent`
         // subscribe observer; arrow; explicit any
         import { throwError } from "rxjs";
+
         throwError("Kaboom!").subscribe({
           error: (error: any) => console.error(error)
         });
@@ -133,6 +145,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
         // tap; arrow; explicit unknown; default option
         import { throwError } from "rxjs";
         import { tap } from "rxjs/operators";
+
         throwError("Kaboom!").pipe(tap(
           undefined,
           (error: unknown) => console.error(error)
@@ -144,6 +157,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
         // tap; arrow; explicit any
         import { throwError } from "rxjs";
         import { tap } from "rxjs/operators";
+
         throwError("Kaboom!").pipe(tap(
           undefined,
           (error: any) => console.error(error)
@@ -156,6 +170,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
         // tap observer; arrow; explicit unknown; default option
         import { throwError } from "rxjs";
         import { tap } from "rxjs/operators";
+
         throwError("Kaboom!").pipe(tap({
           error: (error: unknown) => console.error(error)
         }));
@@ -166,6 +181,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
         // tap observer; arrow; explicit any
         import { throwError } from "rxjs";
         import { tap } from "rxjs/operators";
+
         throwError("Kaboom!").pipe(tap({
           error: (error: any) => console.error(error)
         }));
@@ -195,7 +211,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
 
         throwError("Kaboom!").pipe(
           catchError((error) => console.error(error))
-                      ~~~~~ [implicitAny suggest 0]
+                      ~~~~~ [implicitAny suggest]
         );
       `,
       {
@@ -456,7 +472,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
 
         throwError("Kaboom!").pipe(
           catchError((error: string) => console.error(error))
-                      ~~~~~~~~~~~~~ [narrowed suggest 0]
+                      ~~~~~~~~~~~~~ [narrowed suggest]
         );
       `,
       {
@@ -484,7 +500,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
 
         throwError("Kaboom!").pipe(
           catchError(function (error: string) { console.error(error); })
-                               ~~~~~~~~~~~~~ [narrowed suggest 0]
+                               ~~~~~~~~~~~~~ [narrowed suggest]
         );
       `,
       {
@@ -661,7 +677,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
         throwError("Kaboom!").subscribe(
           undefined,
           (error: string) => console.error(error)
-           ~~~~~~~~~~~~~ [narrowed suggest 0]
+           ~~~~~~~~~~~~~ [narrowed suggest]
         );
       `,
       {
@@ -825,7 +841,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
 
         throwError("Kaboom!").subscribe({
           error: (error: string) => console.error(error)
-                  ~~~~~~~~~~~~~ [narrowed suggest 0]
+                  ~~~~~~~~~~~~~ [narrowed suggest]
         });
       `,
       {
@@ -1014,7 +1030,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
         throwError("Kaboom!").pipe(tap(
           undefined,
           (error: string) => console.error(error)
-           ~~~~~~~~~~~~~ [narrowed suggest 0]
+           ~~~~~~~~~~~~~ [narrowed suggest]
         ));
       `,
       {
@@ -1192,7 +1208,7 @@ ruleTester({ types: true }).run('no-implicit-any-catch', rule, {
 
         throwError("Kaboom!").pipe(tap({
           error: (error: string) => console.error(error)
-                  ~~~~~~~~~~~~~ [narrowed suggest 0]
+                  ~~~~~~~~~~~~~ [narrowed suggest]
         }));
       `,
       {
