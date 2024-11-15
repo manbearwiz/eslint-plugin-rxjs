@@ -83,7 +83,9 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
         callback.type === AST_NODE_TYPES.ArrowFunctionExpression ||
         callback.type === AST_NODE_TYPES.FunctionExpression
       ) {
-        const [param] = callback.params;
+        const params = callback.params;
+        // biome-ignore lint/style/noNonNullAssertion: <explanation>
+        const param = params[0]!;
         if (!param) {
           return;
         }
