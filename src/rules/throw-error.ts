@@ -1,7 +1,6 @@
-import type { TSESTree as es } from '@typescript-eslint/utils';
+import { ESLintUtils, type TSESTree as es } from '@typescript-eslint/utils';
 import { couldBeFunction, couldBeType, isAny, isUnknown } from 'tsutils-etc';
-import type * as ts from 'typescript';
-import { getParserServices } from '../etc';
+import type ts from 'typescript';
 import { getTypeServices, ruleCreator } from '../utils';
 
 type Options = readonly Record<string, boolean | string>[];
@@ -25,7 +24,8 @@ const rule = ruleCreator<Options, keyof typeof messages>({
   },
   name: 'throw-error',
   create: (context) => {
-    const { esTreeNodeToTSNodeMap, program } = getParserServices(context);
+    const { esTreeNodeToTSNodeMap, program } =
+      ESLintUtils.getParserServices(context);
     const { couldBeObservable, getType } = getTypeServices(context);
 
     function checkNode(node: es.Node) {

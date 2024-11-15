@@ -5,7 +5,7 @@ import {
   type TSESTree as es,
 } from '@typescript-eslint/utils';
 import * as tsutils from 'tsutils-etc';
-import * as ts from 'typescript';
+import ts from 'typescript';
 
 export function getTypeServices<
   TMessageIds extends string,

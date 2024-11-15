@@ -1,5 +1,5 @@
-import type { TSESTree as es } from '@typescript-eslint/utils';
-import { findParent, getLoc, getParserServices } from '../etc';
+import { ESLintUtils, type TSESTree as es } from '@typescript-eslint/utils';
+import { findParent, getLoc } from '../etc';
 import { getTypeServices, ruleCreator } from '../utils';
 
 const defaultOptions: readonly {
@@ -39,7 +39,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
   },
   name: 'suffix-subjects',
   create: (context) => {
-    const { esTreeNodeToTSNodeMap } = getParserServices(context);
+    const { esTreeNodeToTSNodeMap } = ESLintUtils.getParserServices(context);
     const { couldBeType } = getTypeServices(context);
     const [config = {}] = context.options;
 

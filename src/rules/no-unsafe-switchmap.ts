@@ -2,7 +2,20 @@ import { AST_NODE_TYPES, type TSESTree as es } from '@typescript-eslint/utils';
 import { stripIndent } from 'common-tags';
 import decamelize from 'decamelize';
 import { defaultObservable } from '../constants';
-import { createRegExpForWords, getTypeServices, ruleCreator } from '../utils';
+import { getTypeServices, ruleCreator } from '../utils';
+
+function createRegExpForWords(config: string | string[]): RegExp | undefined {
+  if (!config || !config.length) {
+    return undefined;
+  }
+  const flags = 'i';
+  if (typeof config === 'string') {
+    return new RegExp(config, flags);
+  }
+  const words = config;
+  const joined = words.map((word) => String.raw`(\b|_)${word}(\b|_)`).join('|');
+  return new RegExp(`(${joined})`, flags);
+}
 
 const defaultOptions: readonly {
   allow?: string | string[];

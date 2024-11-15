@@ -1,5 +1,5 @@
-import type { TSESTree as es } from '@typescript-eslint/utils';
-import { getLoc, getParserServices } from '../etc';
+import { ESLintUtils, type TSESTree as es } from '@typescript-eslint/utils';
+import { getLoc } from '../etc';
 import { getTypeServices, ruleCreator } from '../utils';
 
 type Options = readonly Record<string, boolean | string>[];
@@ -22,7 +22,7 @@ const rule = ruleCreator<Options, keyof typeof messages>({
   },
   name: 'no-finnish',
   create: (context) => {
-    const { esTreeNodeToTSNodeMap } = getParserServices(context);
+    const { esTreeNodeToTSNodeMap } = ESLintUtils.getParserServices(context);
     const { couldBeObservable, couldReturnObservable } =
       getTypeServices(context);
 

@@ -1,8 +1,11 @@
-import { AST_NODE_TYPES, type TSESTree as es } from '@typescript-eslint/utils';
+import {
+  AST_NODE_TYPES,
+  ESLintUtils,
+  type TSESTree as es,
+} from '@typescript-eslint/utils';
 import * as tsutils from 'tsutils';
 import { couldBeType, isReferenceType, isUnionType } from 'tsutils-etc';
-import * as ts from 'typescript';
-import { getParserServices } from '../etc';
+import ts from 'typescript';
 import { getTypeServices, ruleCreator } from '../utils';
 
 type Options = readonly Record<string, boolean | string>[];
@@ -25,7 +28,7 @@ const rule = ruleCreator<Options, keyof typeof messages>({
   },
   name: 'no-unsafe-subject-next',
   create: (context) => {
-    const { esTreeNodeToTSNodeMap } = getParserServices(context);
+    const { esTreeNodeToTSNodeMap } = ESLintUtils.getParserServices(context);
     const { typeChecker } = getTypeServices(context);
     return {
       [`CallExpression[callee.property.name='next']`]: (
