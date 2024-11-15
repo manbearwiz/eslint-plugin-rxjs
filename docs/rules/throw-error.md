@@ -43,7 +43,3 @@ throwError(new Error("Kaboom!"));
 import { throwError } from "rxjs";
 throwError(() => new Error("Kaboom!"));
 ```
-
-## Options
-
-This rule has no options.

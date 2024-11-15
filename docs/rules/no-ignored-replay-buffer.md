@@ -22,7 +22,3 @@ const subject = new ReplaySubject<number>(1);
 import { ReplaySubject } from "rxjs";
 const subject = new ReplaySubject<number>(Infinity);
 ```
-
-## Options
-
-This rule has no options.

@@ -24,7 +24,3 @@ const repeating = source.pipe(
   repeatWhen(notifications => notifications.pipe(take(3)))
 );
 ```
-
-## Options
-
-This rule has no options.

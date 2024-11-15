@@ -17,7 +17,3 @@ Examples of **correct** code for this rule:
 import { of } from "rxjs";
 of(42).subscribe(() => console.log(value));
 ```
-
-## Options
-
-This rule has no options.

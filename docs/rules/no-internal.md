@@ -15,7 +15,3 @@ Examples of **correct** code for this rule:
 ```ts
 import { of } from "rxjs";
 ```
-
-## Options
-
-This rule has no options.

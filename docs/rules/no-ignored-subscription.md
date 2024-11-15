@@ -27,7 +27,3 @@ const numbers = new Observable<number>(subscriber => {
   interval(1e3).subscribe(subscriber);
 });
 ```
-
-## Options
-
-This rule has no options.

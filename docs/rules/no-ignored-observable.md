@@ -17,7 +17,3 @@ Examples of **correct** code for this rule:
 import { of } from "rxjs";
 const answers = of(42, 54);
 ```
-
-## Options
-
-This rule has no options.

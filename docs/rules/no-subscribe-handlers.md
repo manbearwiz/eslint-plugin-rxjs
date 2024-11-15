@@ -33,7 +33,3 @@ of(42, 54)
   .pipe(tap((value) => console.log(value)))
   .subscribe();
 ```
-
-## Options
-
-This rule has no options.

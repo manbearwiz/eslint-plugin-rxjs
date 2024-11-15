@@ -24,7 +24,3 @@ subject.next();
 const subject = new Subject<number>();
 subject.next(0);
 ```
-
-## Options
-
-This rule has no options.

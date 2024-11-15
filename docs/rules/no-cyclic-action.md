@@ -22,7 +22,7 @@ actions.pipe(
 );
 ```
 
-This rule can be used with effects _and epics_, so it makes __no attempt__ to discern whether or not dispatching is disabled for an NgRx effect. That is, code like this will effect (🙈) a failure:
+This rule can be used with effects _and epics_, so it makes **no attempt** to discern whether or not dispatching is disabled for an NgRx effect. That is, code like this will effect (🙈) a failure:
 
 ```ts
 someEffect = createEffect(() =>

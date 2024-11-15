@@ -22,7 +22,3 @@ import { of } from "rxjs";
 
 of(42, 54).subscribe((value) => console.log(value));
 ```
-
-## Options
-
-This rule has no options.

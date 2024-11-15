@@ -23,7 +23,3 @@ const answers = new Observable<number>(subscriber => {
   subscriber.complete();
 });
 ```
-
-## Options
-
-This rule has no options.

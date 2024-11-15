@@ -20,7 +20,3 @@ import { takeWhile } from "rxjs/operators";
 
 const whilst = source.pipe(takeWhile(value => value));
 ```
-
-## Options
-
-This rule has no options.

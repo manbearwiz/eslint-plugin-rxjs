@@ -26,7 +26,3 @@ const subject = new Subject<number>();
 subject.next(42);
 subject.error(new Error("Kaboom!"));
 ```
-
-## Options
-
-This rule has no options.

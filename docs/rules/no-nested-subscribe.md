@@ -24,7 +24,3 @@ of(42, 54).pipe(
   mergeMap((value) => timer(1e3).pipe(mapTo(value)))
 ).subscribe((value) => console.log(value));
 ```
-
-## Options
-
-This rule has no options.

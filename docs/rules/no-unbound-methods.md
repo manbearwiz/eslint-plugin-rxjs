@@ -38,10 +38,6 @@ return this.http
   );
 ```
 
-## Options
-
-This rule has no options.
-
 ## Further reading
 
 - [Avoiding unbound methods](https://ncjamieson.com/avoiding-unbound-methods/)

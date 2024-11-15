@@ -31,7 +31,3 @@ source.subscribe({
   error: (error) => console.error(error)
 });
 ```
-
-## Options
-
-This rule has no options.

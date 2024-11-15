@@ -17,7 +17,3 @@ Examples of **correct** code for this rule:
 import { BehaviorSubject } from "rxjs";
 const subject = new BehaviorSubject(42);
 ```
-
-## Options
-
-This rule has no options.
