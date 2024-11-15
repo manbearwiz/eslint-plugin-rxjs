@@ -12,7 +12,7 @@ const rule = ruleCreator<Options, MessageIds>({
   meta: {
     docs: {
       description:
-        'Forbids the calling of `subscribe` without specifying an error handler.',
+        'Disallow calling `subscribe` without specifying an error handler.',
       recommended: false,
     },
     hasSuggestions: false,

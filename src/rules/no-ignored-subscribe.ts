@@ -11,8 +11,7 @@ const rule = ruleCreator<Options, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description:
-        'Forbids the calling of `subscribe` without specifying arguments.',
+      description: 'Disallow calling `subscribe` without specifying arguments.',
       recommended: false,
     },
     hasSuggestions: false,

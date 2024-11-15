@@ -13,7 +13,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids the application of operators after `takeUntil`.',
+      description: 'Disallow the application of operators after `takeUntil`.',
       recommended: 'error',
     },
     hasSuggestions: false,

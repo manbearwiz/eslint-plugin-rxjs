@@ -11,7 +11,7 @@ const rule = ruleCreator<Options, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids operators that return connectable observables.',
+      description: 'Disallow operators that return connectable observables.',
       recommended: false,
     },
     hasSuggestions: false,

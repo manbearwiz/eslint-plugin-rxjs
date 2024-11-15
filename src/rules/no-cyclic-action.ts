@@ -19,7 +19,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids effects and epics that re-emit filtered actions.',
+      description: 'Disallow effects and epics that re-emit filtered actions.',
       recommended: false,
     },
     hasSuggestions: false,

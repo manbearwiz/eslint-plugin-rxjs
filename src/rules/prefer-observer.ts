@@ -16,7 +16,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
   meta: {
     docs: {
       description:
-        'Forbids the passing separate handlers to `subscribe` and `tap`.',
+        'Disallow the passing separate handlers to `subscribe` and `tap`.',
       recommended: false,
     },
     fixable: 'code',

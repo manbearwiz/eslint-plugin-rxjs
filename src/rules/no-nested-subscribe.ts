@@ -12,7 +12,7 @@ const rule = ruleCreator<Options, MessageIds>({
   meta: {
     docs: {
       description:
-        'Forbids the calling of `subscribe` within a `subscribe` callback.',
+        'Disallow calling `subscribe` within a `subscribe` callback.',
       recommended: 'error',
     },
     hasSuggestions: false,

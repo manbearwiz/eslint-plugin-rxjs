@@ -11,7 +11,7 @@ const rule = ruleCreator<Options, MessageIds>({
   meta: {
     docs: {
       description:
-        'Forbids importation from locations that depend upon `rxjs-compat`.',
+        'Disallow importation from locations that depend upon `rxjs-compat`.',
       recommended: false,
     },
     hasSuggestions: false,

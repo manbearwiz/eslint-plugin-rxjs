@@ -15,7 +15,7 @@ const rule = ruleCreator<Options, keyof typeof messages>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids the importation of internals.',
+      description: 'Disallow importing of internals.',
       recommended: 'error',
     },
     fixable: 'code',

@@ -11,7 +11,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids using the `shareReplay` operator.',
+      description: 'Disallow using the `shareReplay` operator.',
       recommended: 'error',
     },
     hasSuggestions: false,

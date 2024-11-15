@@ -12,7 +12,7 @@ const rule = ruleCreator<Options, keyof typeof messages>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids the use of Finnish notation.',
+      description: 'Disallow Finnish notation.',
       recommended: false,
     },
     hasSuggestions: false,

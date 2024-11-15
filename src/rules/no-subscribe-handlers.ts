@@ -11,7 +11,7 @@ const rule = ruleCreator<Options, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids the passing of handlers to `subscribe`.',
+      description: 'Disallow passing handlers to `subscribe`.',
       recommended: false,
     },
     hasSuggestions: false,

@@ -42,7 +42,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
   meta: {
     docs: {
       description:
-        'Forbids implicit `any` error parameters in `catchError` operators.',
+        'Disallow implicit `any` error parameters in `catchError` operators.',
       recommended: 'error',
       suggestion: true,
     },

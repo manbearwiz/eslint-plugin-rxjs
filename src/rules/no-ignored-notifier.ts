@@ -12,7 +12,7 @@ const rule = ruleCreator<Options, MessageIds>({
   meta: {
     docs: {
       description:
-        'Forbids observables not composed from the `repeatWhen` or `retryWhen` notifier.',
+        'Disallow observables not composed from the `repeatWhen` or `retryWhen` notifier.',
       recommended: 'error',
     },
     hasSuggestions: false,

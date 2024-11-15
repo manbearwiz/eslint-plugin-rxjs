@@ -12,7 +12,7 @@ const rule = ruleCreator<Options, keyof typeof messages>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids the calling of `Observable.create`.',
+      description: 'Disallow calling `Observable.create`.',
       recommended: 'error',
     },
     hasSuggestions: false,

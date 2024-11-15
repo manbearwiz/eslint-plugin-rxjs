@@ -12,7 +12,7 @@ const rule = ruleCreator<Options, MessageIds>({
   meta: {
     docs: {
       description:
-        'Forbids calling the `unsubscribe` method of a subject instance.',
+        'Disallow calling the `unsubscribe` method of a subject instance.',
       recommended: 'error',
     },
     hasSuggestions: false,

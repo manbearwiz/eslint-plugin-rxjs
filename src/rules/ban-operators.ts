@@ -12,7 +12,7 @@ const rule = ruleCreator<Options, keyof typeof messages>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids the use of banned operators.',
+      description: 'Disallow banned operators.',
       recommended: false,
     },
     hasSuggestions: false,

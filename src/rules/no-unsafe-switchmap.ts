@@ -29,7 +29,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids unsafe `switchMap` usage in effects and epics.',
+      description: 'Disallow unsafe `switchMap` usage in effects and epics.',
       recommended: false,
     },
     hasSuggestions: false,

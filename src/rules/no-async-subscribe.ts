@@ -11,7 +11,7 @@ const rule = ruleCreator<Options, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids passing `async` functions to `subscribe`.',
+      description: 'Disallow passing `async` functions to `subscribe`.',
       recommended: 'error',
     },
     hasSuggestions: false,

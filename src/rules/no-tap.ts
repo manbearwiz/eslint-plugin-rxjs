@@ -11,7 +11,7 @@ const rule = ruleCreator<Options, MessageIds>({
   meta: {
     deprecated: true,
     docs: {
-      description: 'Forbids the use of the `tap` operator.',
+      description: 'Disallow the `tap` operator.',
       recommended: false,
     },
     hasSuggestions: false,

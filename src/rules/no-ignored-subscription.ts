@@ -11,7 +11,8 @@ const rule = ruleCreator<Options, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids ignoring the subscription returned by `subscribe`.',
+      description:
+        'Disallow ignoring the subscription returned by `subscribe`.',
       recommended: false,
     },
     hasSuggestions: false,

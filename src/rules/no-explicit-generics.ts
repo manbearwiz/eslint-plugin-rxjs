@@ -10,7 +10,7 @@ const rule = ruleCreator<Options, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids explicit generic type arguments.',
+      description: 'Disallow explicit generic type arguments.',
       recommended: false,
     },
     hasSuggestions: false,

@@ -13,7 +13,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids unsafe `first`/`take` usage in effects and epics.',
+      description: 'Disallow unsafe `first`/`take` usage in effects and epics.',
       recommended: false,
     },
     hasSuggestions: false,

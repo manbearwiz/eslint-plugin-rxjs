@@ -12,7 +12,7 @@ const rule = ruleCreator<Options, keyof typeof messages>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids the use of banned observables.',
+      description: 'Disallow banned observables.',
       recommended: false,
     },
     hasSuggestions: false,

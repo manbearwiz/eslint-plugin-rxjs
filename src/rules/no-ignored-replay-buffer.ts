@@ -11,7 +11,7 @@ const rule = ruleCreator<Options, MessageIds>({
   meta: {
     docs: {
       description:
-        'Forbids using `ReplaySubject`, `publishReplay` or `shareReplay` without specifying the buffer size.',
+        'Disallow using `ReplaySubject`, `publishReplay` or `shareReplay` without specifying the buffer size.',
       recommended: 'error',
     },
     hasSuggestions: false,

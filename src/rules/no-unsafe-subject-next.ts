@@ -18,7 +18,7 @@ const rule = ruleCreator<Options, keyof typeof messages>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids unsafe optional `next` calls.',
+      description: 'Disallow unsafe optional `next` calls.',
       recommended: 'error',
     },
     hasSuggestions: false,

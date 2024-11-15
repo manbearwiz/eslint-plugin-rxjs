@@ -11,7 +11,7 @@ const rule = ruleCreator<Options, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids subclassing RxJS classes.',
+      description: 'Disallow subclassing RxJS classes.',
       recommended: false,
     },
     hasSuggestions: false,

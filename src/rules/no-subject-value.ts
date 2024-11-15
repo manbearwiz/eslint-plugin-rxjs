@@ -12,7 +12,7 @@ const rule = ruleCreator<Options, MessageIds>({
   meta: {
     docs: {
       description:
-        'Forbids accessing the `value` property of a `BehaviorSubject` instance.',
+        'Disallow accessing the `value` property of a `BehaviorSubject` instance.',
       recommended: 'error',
     },
     hasSuggestions: false,

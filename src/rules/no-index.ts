@@ -10,7 +10,7 @@ const rule = ruleCreator<Options, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids the importation from index modules.',
+      description: 'Disallow importing from index modules.',
       recommended: 'error',
     },
     hasSuggestions: false,

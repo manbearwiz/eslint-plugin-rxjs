@@ -15,7 +15,7 @@ const rule = ruleCreator<Options, MessageIds>({
   meta: {
     docs: {
       description:
-        'Forbids redundant notifications from completed or errored observables.',
+        'Disallow redundant notifications from completed or errored observables.',
       recommended: 'error',
     },
     hasSuggestions: false,

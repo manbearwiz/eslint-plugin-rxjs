@@ -10,7 +10,7 @@ const rule = ruleCreator<Options, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids the passing of unbound methods.',
+      description: 'Disallow passing unbound methods.',
       recommended: 'error',
     },
     hasSuggestions: false,

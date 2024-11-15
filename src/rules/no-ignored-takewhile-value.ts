@@ -11,7 +11,7 @@ const rule = ruleCreator<Options, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids ignoring the value within `takeWhile`.',
+      description: 'Disallow ignoring the value within `takeWhile`.',
       recommended: 'error',
     },
     hasSuggestions: false,

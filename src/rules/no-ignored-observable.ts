@@ -11,7 +11,8 @@ const rule = ruleCreator<Options, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids the ignoring of observables returned by functions.',
+      description:
+        'Disallow the ignoring of observables returned by functions.',
       recommended: false,
     },
     hasSuggestions: false,

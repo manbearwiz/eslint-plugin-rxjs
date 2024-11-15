@@ -13,7 +13,7 @@ const rule = ruleCreator<typeof defaultOptions, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids exposed (i.e. non-private) subjects.',
+      description: 'Disallow exposed (i.e. non-private) subjects.',
       recommended: false,
     },
     hasSuggestions: false,

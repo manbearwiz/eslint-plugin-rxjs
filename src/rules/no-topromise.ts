@@ -11,7 +11,7 @@ const rule = ruleCreator<Options, MessageIds>({
   defaultOptions,
   meta: {
     docs: {
-      description: 'Forbids the use of the `toPromise` method.',
+      description: 'Disallow the `toPromise` method.',
       recommended: false,
     },
     hasSuggestions: false,
