@@ -1,12 +1,9 @@
 # @manbearwiz/eslint-plugin-rxjs
 
-[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/cartant/eslint-plugin-rxjs/blob/master/LICENSE)
-[![NPM version](https://img.shields.io/npm/v/eslint-plugin-rxjs.svg)](https://www.npmjs.com/package/eslint-plugin-rxjs)
-[![Downloads](http://img.shields.io/npm/dm/eslint-plugin-rxjs.svg)](https://npmjs.org/package/eslint-plugin-rxjs)
-[![Build status](https://img.shields.io/circleci/build/github/cartant/eslint-plugin-rxjs?token=34077d419805b6295c5a946a155dc7ff142926c5)](https://app.circleci.com/pipelines/github/cartant)
-[![dependency status](https://img.shields.io/david/cartant/eslint-plugin-rxjs.svg)](https://david-dm.org/cartant/eslint-plugin-rxjs)
-[![devDependency Status](https://img.shields.io/david/dev/cartant/eslint-plugin-rxjs.svg)](https://david-dm.org/cartant/eslint-plugin-rxjs#info=devDependencies)
-[![peerDependency Status](https://img.shields.io/david/peer/cartant/eslint-plugin-rxjs.svg)](https://david-dm.org/cartant/eslint-plugin-rxjs#info=peerDependencies)
+[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/manbearwiz/eslint-plugin-rxjs/blob/master/LICENSE)
+[![NPM version](https://img.shields.io/npm/v/@manbearwiz/eslint-plugin-rxjs.svg)](https://www.npmjs.com/package/@manbearwiz/eslint-plugin-rxjs)
+[![Downloads](http://img.shields.io/npm/dm/@manbearwiz/eslint-plugin-rxjs.svg)](https://npmjs.org/package/@manbearwiz/eslint-plugin-rxjs)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/manbearwiz/eslint-plugin-rxjs/release.yml)](https://github.com/manbearwiz/eslint-plugin-rxjs/actions/workflows/release.yml)
 
 This package contains a bunch of ESLint rules for RxJS. Essentially, it's a re-implementation of the rules that are in the [`rxjs-tslint-rules`](https://github.com/cartant/rxjs-tslint-rules) package. (The Angular-specific rules in `rxjs-tslint-rules` have been re-implemented in [`eslint-plugin-rxjs-angular`](https://github.com/cartant/eslint-plugin-rxjs-angular).)
 
