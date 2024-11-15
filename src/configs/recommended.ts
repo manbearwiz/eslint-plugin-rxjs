@@ -1,5 +1,6 @@
-export default {
-  name: 'rxjs/recommended',
+import type { ClassicConfig } from '@typescript-eslint/utils/ts-eslint';
+
+export = {
   rules: {
     'rxjs/no-async-subscribe': 'error',
     'rxjs/no-create': 'error',
@@ -17,4 +18,4 @@ export default {
     'rxjs/no-unsafe-subject-next': 'error',
     'rxjs/no-unsafe-takeuntil': 'error',
   },
-};
+} satisfies ClassicConfig.Config;
