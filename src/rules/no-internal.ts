@@ -4,15 +4,8 @@ import type {
 } from '@typescript-eslint/utils';
 import { ruleCreator } from '../utils';
 
-type Options = readonly Record<string, boolean | string>[];
-const messages = {
-  forbidden: 'RxJS imports from internal are forbidden.',
-  suggest: 'Import from a non-internal location.',
-};
-const defaultOptions: Options = [{}];
-
-const rule = ruleCreator<Options, keyof typeof messages>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [{}] as readonly Record<string, boolean | string>[],
   meta: {
     docs: {
       description: 'Disallow importing of internals.',
@@ -20,7 +13,10 @@ const rule = ruleCreator<Options, keyof typeof messages>({
     },
     fixable: 'code',
     hasSuggestions: true,
-    messages,
+    messages: {
+      forbidden: 'RxJS imports from internal are forbidden.',
+      suggest: 'Import from a non-internal location.',
+    },
     schema: [],
     type: 'problem',
   },

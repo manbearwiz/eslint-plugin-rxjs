@@ -27,18 +27,8 @@ function isParenthesised(
   );
 }
 
-const defaultOptions: readonly {
-  allowExplicitAny?: boolean;
-}[] = [];
-
-type MessageIds =
-  | 'explicitAny'
-  | 'implicitAny'
-  | 'narrowed'
-  | 'suggestExplicitUnknown';
-
-const rule = ruleCreator<typeof defaultOptions, MessageIds>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [] as { allowExplicitAny?: boolean }[],
   meta: {
     docs: {
       description:

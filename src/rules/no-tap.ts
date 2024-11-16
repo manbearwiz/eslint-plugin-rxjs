@@ -1,13 +1,8 @@
 import type { TSESTree as es } from '@typescript-eslint/utils';
 import { ruleCreator } from '../utils';
 
-type Options = readonly Record<string, boolean | string>[];
-type MessageIds = 'forbidden';
-
-const defaultOptions: Options = [{}];
-
-const rule = ruleCreator<Options, MessageIds>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [{}] as readonly Record<string, boolean | string>[],
   meta: {
     deprecated: true,
     docs: {

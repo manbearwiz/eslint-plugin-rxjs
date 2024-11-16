@@ -1,14 +1,8 @@
 import type { TSESTree as es } from '@typescript-eslint/utils';
 import { ruleCreator } from '../utils';
 
-const defaultOptions: readonly {
-  allowConfig?: boolean;
-}[] = [];
-
-type MessageIds = 'forbidden' | 'forbiddenWithoutConfig';
-
-const rule = ruleCreator<typeof defaultOptions, MessageIds>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [] as { allowConfig?: boolean }[],
   meta: {
     docs: {
       description: 'Disallow using the `shareReplay` operator.',

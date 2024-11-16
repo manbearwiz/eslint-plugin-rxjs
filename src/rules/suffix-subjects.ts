@@ -2,18 +2,14 @@ import { ESLintUtils, type TSESTree as es } from '@typescript-eslint/utils';
 import { findParent, getLoc } from '../etc';
 import { getTypeServices, ruleCreator } from '../utils';
 
-const defaultOptions: readonly {
-  parameters?: boolean;
-  properties?: boolean;
-  suffix?: string;
-  types?: Record<string, boolean>;
-  variables?: boolean;
-}[] = [];
-
-type MessageIds = 'forbidden';
-
-const rule = ruleCreator<typeof defaultOptions, MessageIds>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [] as readonly {
+    parameters?: boolean;
+    properties?: boolean;
+    suffix?: string;
+    types?: Record<string, boolean>;
+    variables?: boolean;
+  }[],
   meta: {
     docs: {
       description: 'Enforces the use of a suffix in subject identifiers.',

@@ -5,13 +5,8 @@ import {
 } from '@typescript-eslint/utils';
 import { getTypeServices, ruleCreator } from '../utils';
 
-type Options = readonly Record<string, boolean | string>[];
-type MessageIds = 'forbidden';
-
-const defaultOptions: Options = [{}];
-
-const rule = ruleCreator<Options, MessageIds>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [{}] as readonly Record<string, boolean | string>[],
   meta: {
     docs: {
       description: 'Disallow passing unbound methods.',

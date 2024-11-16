@@ -2,21 +2,17 @@ import { AST_NODE_TYPES, type TSESTree as es } from '@typescript-eslint/utils';
 import { stripIndent } from 'common-tags';
 import { ruleCreator } from '../utils';
 
-type Options = readonly Record<string, boolean | string>[];
-const messages = {
-  forbidden: 'RxJS observable is banned: {{name}}{{explanation}}.',
-};
-const defaultOptions: Options = [{}];
-
-const rule = ruleCreator<Options, keyof typeof messages>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [{}] as readonly Record<string, boolean | string>[],
   meta: {
     docs: {
       description: 'Disallow banned observables.',
       recommended: false,
     },
     hasSuggestions: false,
-    messages,
+    messages: {
+      forbidden: 'RxJS observable is banned: {{name}}{{explanation}}.',
+    },
     schema: [
       {
         type: 'object',

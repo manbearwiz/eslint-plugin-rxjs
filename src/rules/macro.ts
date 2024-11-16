@@ -4,14 +4,8 @@ import type {
 } from '@typescript-eslint/utils';
 import { ruleCreator } from '../utils';
 
-type Options = readonly Record<string, boolean | string>[];
-const messages = {
-  macro: 'Use the RxJS Tools Babel macro.',
-};
-const defaultOptions: Options = [{}];
-
-const rule = ruleCreator<Options, keyof typeof messages>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [{}] as readonly Record<string, boolean | string>[],
   meta: {
     docs: {
       description: 'Enforces the use of the RxJS Tools Babel macro.',
@@ -19,7 +13,9 @@ const rule = ruleCreator<Options, keyof typeof messages>({
     },
     fixable: 'code',
     hasSuggestions: false,
-    messages,
+    messages: {
+      macro: 'Use the RxJS Tools Babel macro.',
+    },
     schema: [],
     type: 'problem',
   },

@@ -8,21 +8,17 @@ import { couldBeType, isReferenceType, isUnionType } from 'tsutils-etc';
 import ts from 'typescript';
 import { ruleCreator } from '../utils';
 
-type Options = readonly Record<string, boolean | string>[];
-const messages = {
-  forbidden: 'Unsafe optional next calls are forbidden.',
-};
-const defaultOptions: Options = [{}];
-
-const rule = ruleCreator<Options, keyof typeof messages>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [{}] as readonly Record<string, boolean | string>[],
   meta: {
     docs: {
       description: 'Disallow unsafe optional `next` calls.',
       recommended: 'error',
     },
     hasSuggestions: false,
-    messages,
+    messages: {
+      forbidden: 'Unsafe optional next calls are forbidden.',
+    },
     schema: [],
     type: 'problem',
   },

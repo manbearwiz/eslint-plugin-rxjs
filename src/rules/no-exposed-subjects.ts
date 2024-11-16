@@ -3,14 +3,9 @@ import { getTypeServices } from '../utils';
 import { ruleCreator } from '../utils';
 
 const defaultAllowedTypesRegExp = /^EventEmitter$/;
-const defaultOptions: readonly {
-  allowProtected?: boolean;
-}[] = [];
 
-type MessageIds = 'forbidden' | 'forbiddenAllowProtected';
-
-const rule = ruleCreator<typeof defaultOptions, MessageIds>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [] as { allowProtected?: boolean }[],
   meta: {
     docs: {
       description: 'Disallow exposed (i.e. non-private) subjects.',

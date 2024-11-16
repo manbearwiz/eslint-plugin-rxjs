@@ -2,15 +2,11 @@ import { AST_NODE_TYPES, type TSESTree as es } from '@typescript-eslint/utils';
 import { stripIndent } from 'common-tags';
 import { getTypeServices, ruleCreator } from '../utils';
 
-const defaultOptions: readonly {
-  alias?: string[];
-  allow?: string[];
-}[] = [];
-
-type MessageIds = 'forbidden';
-
-const rule = ruleCreator<typeof defaultOptions, MessageIds>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [] as readonly {
+    alias?: string[];
+    allow?: string[];
+  }[],
   meta: {
     docs: {
       description: 'Disallow the application of operators after `takeUntil`.',

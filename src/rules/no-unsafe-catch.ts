@@ -3,14 +3,8 @@ import { stripIndent } from 'common-tags';
 import { defaultObservable } from '../constants';
 import { getTypeServices, ruleCreator } from '../utils';
 
-const defaultOptions: readonly {
-  observable?: string;
-}[] = [];
-
-type MessageIds = 'forbidden';
-
-const rule = ruleCreator<typeof defaultOptions, MessageIds>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [] as { observable?: string }[],
   meta: {
     docs: {
       description: 'Disallow unsafe `catchError` usage in effects and epics.',

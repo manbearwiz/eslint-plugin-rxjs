@@ -2,21 +2,17 @@ import { ESLintUtils, type TSESTree as es } from '@typescript-eslint/utils';
 import { findParent, getLoc } from '../etc';
 import { getTypeServices, ruleCreator } from '../utils';
 
-const defaultOptions: readonly {
-  functions?: boolean;
-  methods?: boolean;
-  names?: Record<string, boolean>;
-  parameters?: boolean;
-  properties?: boolean;
-  strict?: boolean;
-  types?: Record<string, boolean>;
-  variables?: boolean;
-}[] = [];
-
-type MessageIds = 'shouldBeFinnish' | 'shouldNotBeFinnish';
-
-const rule = ruleCreator<typeof defaultOptions, MessageIds>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [] as readonly {
+    functions?: boolean;
+    methods?: boolean;
+    names?: Record<string, boolean>;
+    parameters?: boolean;
+    properties?: boolean;
+    strict?: boolean;
+    types?: Record<string, boolean>;
+    variables?: boolean;
+  }[],
   meta: {
     docs: {
       description: 'Enforces the use of Finnish notation.',

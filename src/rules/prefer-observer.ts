@@ -5,14 +5,8 @@ import {
 } from '@typescript-eslint/utils';
 import { getTypeServices, ruleCreator } from '../utils';
 
-const defaultOptions: readonly {
-  allowNext?: boolean;
-}[] = [];
-
-type MessageIds = 'forbidden';
-
-const rule = ruleCreator<typeof defaultOptions, MessageIds>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [] as { allowNext?: boolean }[],
   meta: {
     docs: {
       description:

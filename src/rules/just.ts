@@ -1,14 +1,8 @@
 import type { TSESTree as es } from '@typescript-eslint/utils';
 import { ruleCreator } from '../utils';
 
-type Options = readonly Record<string, boolean | string>[];
-const messages = {
-  forbidden: 'Use just alias.',
-};
-const defaultOptions: Options = [{}];
-
-const rule = ruleCreator<Options, keyof typeof messages>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [{}] as readonly Record<string, boolean | string>[],
   meta: {
     docs: {
       description: 'Enforces the use of a `just` alias for `of`.',
@@ -16,7 +10,9 @@ const rule = ruleCreator<Options, keyof typeof messages>({
     },
     fixable: 'code',
     hasSuggestions: false,
-    messages,
+    messages: {
+      forbidden: 'Use just alias.',
+    },
     schema: [],
     type: 'problem',
   },

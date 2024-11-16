@@ -2,21 +2,17 @@ import { ESLintUtils, type TSESTree as es } from '@typescript-eslint/utils';
 import { getLoc } from '../etc';
 import { getTypeServices, ruleCreator } from '../utils';
 
-type Options = readonly Record<string, boolean | string>[];
-const messages = {
-  forbidden: 'Finnish notation is forbidden.',
-};
-const defaultOptions: Options = [{}];
-
-const rule = ruleCreator<Options, keyof typeof messages>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [{}] as readonly Record<string, boolean | string>[],
   meta: {
     docs: {
       description: 'Disallow Finnish notation.',
       recommended: false,
     },
     hasSuggestions: false,
-    messages,
+    messages: {
+      forbidden: 'Finnish notation is forbidden.',
+    },
     schema: [],
     type: 'problem',
   },

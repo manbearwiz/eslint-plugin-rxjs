@@ -17,16 +17,12 @@ function createRegExpForWords(config: string | string[]): RegExp | undefined {
   return new RegExp(`(${joined})`, flags);
 }
 
-const defaultOptions: readonly {
-  allow?: string | string[];
-  disallow?: string | string[];
-  observable?: string;
-}[] = [];
-
-type MessageIds = 'forbidden';
-
-const rule = ruleCreator<typeof defaultOptions, MessageIds>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [] as readonly {
+    allow?: string | string[];
+    disallow?: string | string[];
+    observable?: string;
+  }[],
   meta: {
     docs: {
       description: 'Disallow unsafe `switchMap` usage in effects and epics.',

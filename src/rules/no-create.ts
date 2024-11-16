@@ -2,21 +2,17 @@ import type { TSESTree as es } from '@typescript-eslint/utils';
 import { getTypeServices } from '../utils';
 import { ruleCreator } from '../utils';
 
-type Options = readonly Record<string, boolean | string>[];
-const messages = {
-  forbidden: 'Observable.create is forbidden; use new Observable.',
-};
-const defaultOptions: Options = [{}];
-
-const rule = ruleCreator<Options, keyof typeof messages>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [{}] as readonly Record<string, boolean | string>[],
   meta: {
     docs: {
       description: 'Disallow calling `Observable.create`.',
       recommended: 'error',
     },
     hasSuggestions: false,
-    messages,
+    messages: {
+      forbidden: 'Observable.create is forbidden; use new Observable.',
+    },
     schema: [],
     type: 'problem',
   },

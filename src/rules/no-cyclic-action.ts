@@ -13,14 +13,8 @@ function isTypeReference(type: ts.Type): type is ts.TypeReference {
   return Boolean((type as any).target);
 }
 
-const defaultOptions: readonly {
-  observable?: string;
-}[] = [];
-
-type MessageIds = 'forbidden';
-
-const rule = ruleCreator<typeof defaultOptions, MessageIds>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [] as { observable?: string }[],
   meta: {
     docs: {
       description: 'Disallow cyclic actions in effects and epics.',

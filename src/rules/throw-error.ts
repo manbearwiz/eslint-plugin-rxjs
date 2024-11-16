@@ -3,14 +3,8 @@ import { couldBeFunction, couldBeType, isAny, isUnknown } from 'tsutils-etc';
 import type ts from 'typescript';
 import { getTypeServices, ruleCreator } from '../utils';
 
-type Options = readonly Record<string, boolean | string>[];
-const messages = {
-  forbidden: 'Passing non-Error values are forbidden.',
-};
-const defaultOptions: Options = [{}];
-
-const rule = ruleCreator<Options, keyof typeof messages>({
-  defaultOptions,
+const rule = ruleCreator({
+  defaultOptions: [{}] as readonly Record<string, boolean | string>[],
   meta: {
     docs: {
       description:
@@ -18,7 +12,9 @@ const rule = ruleCreator<Options, keyof typeof messages>({
       recommended: false,
     },
     hasSuggestions: false,
-    messages,
+    messages: {
+      forbidden: 'Passing non-Error values are forbidden.',
+    },
     schema: [],
     type: 'problem',
   },
