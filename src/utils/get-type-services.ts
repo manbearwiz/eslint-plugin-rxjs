@@ -4,24 +4,24 @@ import {
   type TSESLint,
   type TSESTree as es,
 } from '@typescript-eslint/utils';
-import * as tsutils from 'tsutils-etc';
 import ts from 'typescript';
+import { couldBeType as tsutilsEtcCouldBeType } from './could-be-type';
 
 export function getTypeServices<
   TMessageIds extends string,
   TOptions extends unknown[],
 >(context: TSESLint.RuleContext<TMessageIds, Readonly<TOptions>>) {
   const services = ESLintUtils.getParserServices(context);
-  const { esTreeNodeToTSNodeMap, program } = services;
+  const { esTreeNodeToTSNodeMap, program, getTypeAtLocation } = services;
   const typeChecker = program.getTypeChecker();
 
   const couldBeType = (
     node: es.Node,
     name: string | RegExp,
     qualified?: { name: RegExp },
-  ) => {
-    const type = getType(node);
-    return tsutils.couldBeType(
+  ): boolean => {
+    const type = getTypeAtLocation(node);
+    return tsutilsEtcCouldBeType(
       type,
       name,
       qualified ? { ...qualified, typeChecker } : undefined,
@@ -50,7 +50,7 @@ export function getTypeServices<
     }
     return Boolean(
       tsTypeNode &&
-        tsutils.couldBeType(
+        tsutilsEtcCouldBeType(
           typeChecker.getTypeAtLocation(tsTypeNode),
           name,
           qualified ? { ...qualified, typeChecker } : undefined,
@@ -74,7 +74,12 @@ export function getTypeServices<
       ) {
         return true;
       }
-      return tsutils.couldBeFunction(getType(node));
+      return (
+        !!getType(node).getCallSignatures().length ||
+        couldBeType(node, 'Function') ||
+        couldBeType(node, 'ArrowFunction') ||
+        couldBeType(node, ts.InternalSymbolName.Function)
+      );
     },
     couldBeMonoTypeOperatorFunction: (node: es.Node) =>
       couldBeType(node, 'MonoTypeOperatorFunction'),

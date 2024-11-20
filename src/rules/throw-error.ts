@@ -1,7 +1,12 @@
 import { ESLintUtils, type TSESTree as es } from '@typescript-eslint/utils';
-import { couldBeFunction, couldBeType, isAny, isUnknown } from 'tsutils-etc';
+import { isIntrinsicAnyType, isIntrinsicUnknownType } from 'ts-api-utils';
 import type ts from 'typescript';
-import { getTypeServices, ruleCreator } from '../utils';
+import {
+  couldBeFunction,
+  couldBeType,
+  getTypeServices,
+  ruleCreator,
+} from '../utils';
 
 const rule = ruleCreator({
   defaultOptions: [{}] as readonly Record<string, boolean | string>[],
@@ -33,8 +38,8 @@ const rule = ruleCreator({
         type = program.getTypeChecker().getTypeAtLocation(annotation ?? body);
       }
       if (
-        !isAny(type) &&
-        !isUnknown(type) &&
+        !isIntrinsicAnyType(type) &&
+        !isIntrinsicUnknownType(type) &&
         !couldBeType(type, /^(Error|DOMException)$/)
       ) {
         context.report({
