@@ -10,6 +10,7 @@ const rule = ruleCreator({
     docs: {
       description: 'Disallow exposed (i.e. non-private) subjects.',
       recommended: false,
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

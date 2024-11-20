@@ -8,6 +8,7 @@ const rule = ruleCreator({
     docs: {
       description: 'Disallow calling `subscribe` without specifying arguments.',
       recommended: false,
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

@@ -8,6 +8,7 @@ const rule = ruleCreator({
     docs: {
       description: 'Disallow passing handlers to `subscribe`.',
       recommended: false,
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

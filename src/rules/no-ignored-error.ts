@@ -9,6 +9,7 @@ const rule = ruleCreator({
       description:
         'Disallow calling `subscribe` without specifying an error handler.',
       recommended: false,
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

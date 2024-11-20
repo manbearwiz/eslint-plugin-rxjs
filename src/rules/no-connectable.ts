@@ -8,6 +8,7 @@ const rule = ruleCreator({
     docs: {
       description: 'Disallow operators that return connectable observables.',
       recommended: false,
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

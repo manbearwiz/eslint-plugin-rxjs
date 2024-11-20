@@ -9,6 +9,7 @@ const rule = ruleCreator({
       description:
         'Disallow observables not composed from the `repeatWhen` or `retryWhen` notifier.',
       recommended: 'error',
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

@@ -9,6 +9,7 @@ const rule = ruleCreator({
       description:
         'Disallow accessing the `value` property of a `BehaviorSubject` instance.',
       recommended: 'error',
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

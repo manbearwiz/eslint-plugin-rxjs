@@ -9,6 +9,7 @@ const rule = ruleCreator({
     docs: {
       description: 'Disallow unsafe `first`/`take` usage in effects and epics.',
       recommended: false,
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

@@ -11,8 +11,8 @@ export function getTypeServices<
   TMessageIds extends string,
   TOptions extends unknown[],
 >(context: TSESLint.RuleContext<TMessageIds, Readonly<TOptions>>) {
-  const services = ESLintUtils.getParserServices(context);
-  const { esTreeNodeToTSNodeMap, program, getTypeAtLocation } = services;
+  const { esTreeNodeToTSNodeMap, program, getTypeAtLocation } =
+    ESLintUtils.getParserServices(context);
   const typeChecker = program.getTypeChecker();
 
   const couldBeType = (

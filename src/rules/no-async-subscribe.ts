@@ -8,6 +8,7 @@ const rule = ruleCreator({
     docs: {
       description: 'Disallow passing `async` functions to `subscribe`.',
       recommended: 'error',
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

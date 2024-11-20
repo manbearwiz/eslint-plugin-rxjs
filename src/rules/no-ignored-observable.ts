@@ -9,6 +9,7 @@ const rule = ruleCreator({
       description:
         'Disallow the ignoring of observables returned by functions.',
       recommended: false,
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

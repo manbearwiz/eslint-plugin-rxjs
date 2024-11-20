@@ -8,6 +8,7 @@ const rule = ruleCreator({
     docs: {
       description: 'Disallow subclassing RxJS classes.',
       recommended: false,
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

@@ -17,6 +17,7 @@ const rule = ruleCreator({
     docs: {
       description: 'Enforces the use of Finnish notation.',
       recommended: false,
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

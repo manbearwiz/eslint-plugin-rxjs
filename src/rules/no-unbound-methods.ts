@@ -11,6 +11,7 @@ const rule = ruleCreator({
     docs: {
       description: 'Disallow passing unbound methods.',
       recommended: 'error',
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

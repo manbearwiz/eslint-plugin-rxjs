@@ -35,6 +35,7 @@ const rule = ruleCreator({
         'Disallow implicit `any` error parameters in `catchError` operators.',
       recommended: 'error',
       suggestion: true,
+      requiresTypeChecking: true,
     },
     fixable: 'code',
     hasSuggestions: true,

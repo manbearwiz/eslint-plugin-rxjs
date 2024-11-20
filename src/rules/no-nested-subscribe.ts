@@ -9,6 +9,7 @@ const rule = ruleCreator({
       description:
         'Disallow calling `subscribe` within a `subscribe` callback.',
       recommended: 'error',
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

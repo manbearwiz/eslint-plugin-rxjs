@@ -14,6 +14,7 @@ const rule = ruleCreator({
     docs: {
       description: 'Enforces the use of a suffix in subject identifiers.',
       recommended: false,
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

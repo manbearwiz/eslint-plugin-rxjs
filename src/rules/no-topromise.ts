@@ -8,6 +8,7 @@ const rule = ruleCreator({
     docs: {
       description: 'Disallow the `toPromise` method.',
       recommended: false,
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

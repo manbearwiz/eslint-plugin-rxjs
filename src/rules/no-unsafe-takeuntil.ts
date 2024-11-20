@@ -11,6 +11,7 @@ const rule = ruleCreator({
     docs: {
       description: 'Disallow the application of operators after `takeUntil`.',
       recommended: 'error',
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

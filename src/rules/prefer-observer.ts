@@ -12,6 +12,7 @@ const rule = ruleCreator({
       description:
         'Disallow passing separate handlers to `subscribe` and `tap`.',
       recommended: false,
+      requiresTypeChecking: true,
     },
     fixable: 'code',
     hasSuggestions: true,

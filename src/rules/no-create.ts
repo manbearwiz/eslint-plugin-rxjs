@@ -8,6 +8,7 @@ const rule = ruleCreator({
     docs: {
       description: 'Disallow calling `Observable.create`.',
       recommended: 'error',
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

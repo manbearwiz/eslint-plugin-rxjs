@@ -9,6 +9,7 @@ const rule = ruleCreator({
       description:
         'Disallow calling the `unsubscribe` method of a subject instance.',
       recommended: 'error',
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

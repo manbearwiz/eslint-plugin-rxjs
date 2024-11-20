@@ -9,6 +9,7 @@ const rule = ruleCreator({
       description:
         'Disallow ignoring the subscription returned by `subscribe`.',
       recommended: false,
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {

@@ -13,6 +13,7 @@ const rule = ruleCreator({
     docs: {
       description: 'Disallow unsafe optional `next` calls.',
       recommended: 'error',
+      requiresTypeChecking: true,
     },
     hasSuggestions: false,
     messages: {
