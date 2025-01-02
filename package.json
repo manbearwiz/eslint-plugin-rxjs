@@ -1,5 +1,5 @@
 {
-  "name": "@manbearwiz/eslint-plugin-rxjs",
+  "name": "@rxlint/eslint-plugin",
   "version": "0.0.0-development",
   "description": "ESLint rules for RxJS",
   "author": "Kevin Brey",
