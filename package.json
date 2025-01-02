@@ -56,5 +56,10 @@
   "release": {
     "branches": ["main"]
   },
-  "type": "commonjs"
+  "type": "commonjs",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }
