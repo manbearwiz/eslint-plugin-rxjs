@@ -1,8 +1,8 @@
-# @manbearwiz/eslint-plugin-rxjs
+# @rxlint/eslint-plugin-rxjs
 
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/manbearwiz/eslint-plugin-rxjs/blob/master/LICENSE)
-[![NPM version](https://img.shields.io/npm/v/@manbearwiz/eslint-plugin-rxjs.svg)](https://www.npmjs.com/package/@manbearwiz/eslint-plugin-rxjs)
-[![Downloads](http://img.shields.io/npm/dm/@manbearwiz/eslint-plugin-rxjs.svg)](https://www.npmjs.com/package/@manbearwiz/eslint-plugin-rxjs)
+[![NPM version](https://img.shields.io/npm/v/@rxlint/eslint-plugin.svg)](https://www.npmjs.com/package/@rxlint/eslint-plugin)
+[![Downloads](http://img.shields.io/npm/dm/@rxlint/eslint-plugin.svg)](https://www.npmjs.com/package/@rxlint/eslint-plugin)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/manbearwiz/eslint-plugin-rxjs/release.yml)](https://github.com/manbearwiz/eslint-plugin-rxjs/actions/workflows/release.yml)
 
 This package contains a bunch of ESLint rules for RxJS. Essentially, it's a re-implementation of the rules that are in the [`rxjs-tslint-rules`](https://github.com/cartant/rxjs-tslint-rules) package. (The Angular-specific rules in `rxjs-tslint-rules` have been re-implemented in [`eslint-plugin-rxjs-angular`](https://github.com/cartant/eslint-plugin-rxjs-angular).)
@@ -11,7 +11,7 @@ Some of the rules are rather opinionated and are not included in the `recommende
 
 Almost all of these rules require the TypeScript parser for ESLint.
 
-# Install
+## Install
 
 Install the ESLint TypeScript parser using npm:
 
@@ -22,7 +22,7 @@ npm install @typescript-eslint/parser --save-dev
 Install the package using npm:
 
 ```sh
-npm install @manbearwiz/eslint-plugin-rxjs --save-dev
+npm install @rxlint/eslint-plugin --save-dev
 ```
 
 Configure the `parser` and the `parserOptions` for ESLint. Here, I use a `.eslintrc.js` file for the configuration:
@@ -64,7 +64,7 @@ module.exports = {
 };
 ```
 
-# Rules
+## Rules
 
 The package includes the following rules.
 
