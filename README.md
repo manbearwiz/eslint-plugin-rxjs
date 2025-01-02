@@ -11,19 +11,17 @@ Some of the rules are rather opinionated and are not included in the `recommende
 
 Almost all of these rules require the TypeScript parser for ESLint.
 
-## Install
+## Installation
 
 Install the ESLint TypeScript parser using npm:
 
 ```sh
-npm install @typescript-eslint/parser --save-dev
+npm install --save-dev eslint typescript @typescript-eslint/parser @rxlint/eslint-plugin --save-dev
+# or
+yarn add --dev eslint typescript @typescript-eslint/parser @rxlint/eslint-plugin
 ```
 
-Install the package using npm:
-
-```sh
-npm install @rxlint/eslint-plugin --save-dev
-```
+## Configuration
 
 Configure the `parser` and the `parserOptions` for ESLint. Here, I use a `.eslintrc.js` file for the configuration:
 
@@ -32,19 +30,19 @@ const { join } = require("path");
 module.exports = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: 2019,
-    project: join(__dirname, "./tsconfig.json"),
+    ecmaVersion: "latest",
+    project: true,
     sourceType: "module"
   },
-  plugins: ["rxjs"],
-  extends: [],
+  plugins: ["@rxlint"],
+  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   rules: {
-    "rxjs/no-async-subscribe": "error",
-    "rxjs/no-ignored-observable": "error",
-    "rxjs/no-ignored-subscription": "error",
-    "rxjs/no-nested-subscribe": "error",
-    "rxjs/no-unbound-methods": "error",
-    "rxjs/throw-error": "error"
+    "@rxlint/no-async-subscribe": "error",
+    "@rxlint/no-ignored-observable": "error",
+    "@rxlint/no-ignored-subscription": "error",
+    "@rxlint/no-nested-subscribe": "error",
+    "@rxlint/no-unbound-methods": "error",
+    "@rxlint/throw-error": "error"
   }
 };
 ```
@@ -56,11 +54,11 @@ const { join } = require("path");
 module.exports = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: 2019,
-    project: join(__dirname, "./tsconfig.json"),
+    ecmaVersion: "latest",
+    project: true,
     sourceType: "module"
   },
-  extends: ["plugin:rxjs/recommended"],
+  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:@rxlint/recommended"],
 };
 ```
 
