@@ -23,11 +23,11 @@
     "lint:fix": "npx @biomejs/biome check --write"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^8.8.1",
+    "@typescript-eslint/utils": "^7.11.0 || ^8.8.1",
     "common-tags": "^1.8.2",
     "decamelize": "^5.0.1",
     "rxjs": "^7.8.1",
-    "ts-api-utils": "^1.4.0"
+    "ts-api-utils": "^1.0.0 || ^2.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
@@ -37,8 +37,8 @@
     "@tsconfig/strictest": "^2.0.5",
     "@types/common-tags": "^1.8.4",
     "@types/node": "^22.7.5",
-    "@typescript-eslint/parser": "^8.8.1",
-    "@typescript-eslint/rule-tester": "^8.8.1",
+    "@typescript-eslint/parser": "^7.11.0 || ^8.8.1",
+    "@typescript-eslint/rule-tester": "^7.11.0 || ^8.8.1",
     "@vitest/ui": "^2.1.2",
     "happy-dom": "^15.7.4",
     "lefthook": "^1.7.16",

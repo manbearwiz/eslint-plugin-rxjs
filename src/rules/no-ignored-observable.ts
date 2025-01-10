@@ -8,10 +8,8 @@ const rule = ruleCreator({
     docs: {
       description:
         'Disallow the ignoring of observables returned by functions.',
-      recommended: false,
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Ignoring a returned Observable is forbidden.',
     },

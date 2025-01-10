@@ -7,9 +7,8 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow ignoring the value within `takeWhile`.',
-      recommended: 'error',
+      recommended: 'recommended',
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Ignoring the value within takeWhile is forbidden.',
     },

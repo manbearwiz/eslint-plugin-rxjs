@@ -12,10 +12,9 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow unsafe optional `next` calls.',
-      recommended: 'error',
+      recommended: 'recommended',
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Unsafe optional next calls are forbidden.',
     },

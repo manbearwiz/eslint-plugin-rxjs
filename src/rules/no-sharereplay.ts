@@ -6,9 +6,8 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow using the `shareReplay` operator.',
-      recommended: 'error',
+      recommended: 'recommended',
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'shareReplay is forbidden.',
       forbiddenWithoutConfig:

@@ -6,10 +6,9 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Enforces the use of a `just` alias for `of`.',
-      recommended: false,
     },
     fixable: 'code',
-    hasSuggestions: false,
+
     messages: {
       forbidden: 'Use just alias.',
     },

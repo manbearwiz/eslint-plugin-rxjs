@@ -9,7 +9,7 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow importing of internals.',
-      recommended: 'error',
+      recommended: 'recommended',
     },
     fixable: 'code',
     hasSuggestions: true,

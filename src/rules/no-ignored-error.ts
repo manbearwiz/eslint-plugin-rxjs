@@ -8,10 +8,8 @@ const rule = ruleCreator({
     docs: {
       description:
         'Disallow calling `subscribe` without specifying an error handler.',
-      recommended: false,
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Calling subscribe without an error handler is forbidden.',
     },

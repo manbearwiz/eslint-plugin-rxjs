@@ -7,9 +7,7 @@ const rule = ruleCreator({
     deprecated: true,
     docs: {
       description: 'Disallow the `tap` operator.',
-      recommended: false,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'The tap operator is forbidden.',
     },

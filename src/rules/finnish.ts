@@ -16,10 +16,8 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Enforces the use of Finnish notation.',
-      recommended: false,
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       shouldBeFinnish: 'Finnish notation should be used here.',
       shouldNotBeFinnish: 'Finnish notation should not be used here.',

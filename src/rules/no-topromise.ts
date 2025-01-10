@@ -7,10 +7,8 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow the `toPromise` method.',
-      recommended: false,
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'The toPromise method is forbidden.',
     },

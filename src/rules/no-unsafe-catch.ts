@@ -8,10 +8,8 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow unsafe `catchError` usage in effects and epics.',
-      recommended: false,
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Unsafe catchError usage in effects and epics are forbidden.',
     },

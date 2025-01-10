@@ -7,10 +7,8 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow passing handlers to `subscribe`.',
-      recommended: false,
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Passing handlers to subscribe is forbidden.',
     },

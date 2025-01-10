@@ -7,9 +7,7 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow banned operators.',
-      recommended: false,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'RxJS operator is banned: {{name}}{{explanation}}.',
     },
@@ -62,7 +60,9 @@ const rule = ruleCreator({
           const name =
             identifier.type === AST_NODE_TYPES.Identifier
               ? identifier.name
-              : identifier.raw;
+              : 'raw' in identifier
+                ? (identifier.raw as string)
+                : '';
           const failure = getFailure(name);
           if (failure) {
             context.report({

@@ -11,10 +11,9 @@ const rule = ruleCreator({
     docs: {
       description:
         'Disallow redundant notifications from completed or errored observables.',
-      recommended: 'error',
+      recommended: 'recommended',
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Redundant notifications are forbidden.',
     },

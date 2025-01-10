@@ -7,9 +7,7 @@ const rule = ruleCreator({
     docs: {
       description:
         'Disallow importation from locations that depend upon `rxjs-compat`.',
-      recommended: false,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: "'rxjs-compat'-dependent import locations are forbidden.",
     },

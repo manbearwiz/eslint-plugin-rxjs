@@ -18,10 +18,8 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow cyclic actions in effects and epics.',
-      recommended: false,
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden:
         'Effects and epics that re-emit filtered actions are forbidden.',

@@ -7,9 +7,8 @@ const rule = ruleCreator({
     docs: {
       description:
         'Disallow using `ReplaySubject`, `publishReplay` or `shareReplay` without specifying the buffer size.',
-      recommended: 'error',
+      recommended: 'recommended',
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Ignoring the buffer size is forbidden.',
     },

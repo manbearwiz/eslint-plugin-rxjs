@@ -10,10 +10,9 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow the application of operators after `takeUntil`.',
-      recommended: 'error',
+      recommended: 'recommended',
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Applying operators after takeUntil is forbidden.',
     },

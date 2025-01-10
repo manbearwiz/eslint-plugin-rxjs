@@ -8,10 +8,8 @@ const rule = ruleCreator({
     docs: {
       description:
         'Disallow ignoring the subscription returned by `subscribe`.',
-      recommended: false,
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Ignoring returned subscriptions is forbidden.',
     },

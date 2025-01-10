@@ -7,10 +7,8 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow Finnish notation.',
-      recommended: false,
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Finnish notation is forbidden.',
     },

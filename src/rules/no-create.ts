@@ -7,10 +7,9 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow calling `Observable.create`.',
-      recommended: 'error',
+      recommended: 'recommended',
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Observable.create is forbidden; use new Observable.',
     },

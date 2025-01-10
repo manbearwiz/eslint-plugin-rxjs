@@ -6,9 +6,8 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow importing from index modules.',
-      recommended: 'error',
+      recommended: 'recommended',
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'RxJS imports from index modules are forbidden.',
     },

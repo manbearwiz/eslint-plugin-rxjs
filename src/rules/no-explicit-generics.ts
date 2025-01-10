@@ -6,9 +6,7 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow explicit generic type arguments.',
-      recommended: false,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Explicit generic type arguments are forbidden.',
     },

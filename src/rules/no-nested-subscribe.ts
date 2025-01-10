@@ -8,10 +8,9 @@ const rule = ruleCreator({
     docs: {
       description:
         'Disallow calling `subscribe` within a `subscribe` callback.',
-      recommended: 'error',
+      recommended: 'recommended',
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Nested subscribe calls are forbidden.',
     },

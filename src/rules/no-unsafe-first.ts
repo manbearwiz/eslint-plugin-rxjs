@@ -8,10 +8,8 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow unsafe `first`/`take` usage in effects and epics.',
-      recommended: false,
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden:
         'Unsafe first and take usage in effects and epics are forbidden.',

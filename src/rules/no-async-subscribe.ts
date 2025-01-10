@@ -7,10 +7,9 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow passing `async` functions to `subscribe`.',
-      recommended: 'error',
+      recommended: 'recommended',
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Passing async functions to subscribe is forbidden.',
     },

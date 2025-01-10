@@ -14,10 +14,8 @@ const rule = ruleCreator({
     docs: {
       description:
         'Enforce passing only `Error` values to error notifications.',
-      recommended: false,
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Passing non-Error values are forbidden.',
     },

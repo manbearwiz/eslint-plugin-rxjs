@@ -10,10 +10,9 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow passing unbound methods.',
-      recommended: 'error',
+      recommended: 'recommended',
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Unbound methods are forbidden.',
     },

@@ -8,10 +8,9 @@ const rule = ruleCreator({
     docs: {
       description:
         'Disallow calling the `unsubscribe` method of a subject instance.',
-      recommended: 'error',
+      recommended: 'recommended',
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: 'Calling unsubscribe on a subject is forbidden.',
     },

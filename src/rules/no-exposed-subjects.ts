@@ -9,10 +9,8 @@ const rule = ruleCreator({
   meta: {
     docs: {
       description: 'Disallow exposed (i.e. non-private) subjects.',
-      recommended: false,
       requiresTypeChecking: true,
     },
-    hasSuggestions: false,
     messages: {
       forbidden: "Subject '{{subject}}' must be private.",
       forbiddenAllowProtected:
