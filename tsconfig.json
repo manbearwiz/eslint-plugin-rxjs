@@ -1,11 +1,13 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": ["@tsconfig/strictest/tsconfig", "@tsconfig/node18/tsconfig"],
+  "extends": ["@tsconfig/strictest/tsconfig", "@tsconfig/node-lts/tsconfig"],
   "compilerOptions": {
-    "importHelpers": true,
-    "noEmitHelpers": true,
+    "composite": true,
+    "declarationMap": true,
     "outDir": "./dist",
-    "sourceMap": false
+    "resolveJsonModule": true,
+    "rootDir": "./src",
+    "sourceMap": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["**/*.test.ts"]

@@ -33,7 +33,7 @@
     "@biomejs/biome": "1.9.4",
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-angular": "^19.0.3",
-    "@tsconfig/node18": "^18.2.4",
+    "@tsconfig/node-lts": "^22.0.1",
     "@tsconfig/strictest": "^2.0.5",
     "@types/common-tags": "^1.8.4",
     "@types/node": "^22.7.5",
@@ -52,7 +52,8 @@
     "typescript": ">=4.8.4 <5.8.0"
   },
   "files": ["dist", "docs"],
-  "main": "./dist/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "release": {
     "branches": ["main"]
   },
@@ -61,5 +62,11 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
   }
 }
