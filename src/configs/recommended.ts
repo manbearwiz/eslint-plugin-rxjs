@@ -3,12 +3,10 @@ import recommendedClassic from './recommended-classic';
 
 export default (
   plugin: TSESLint.FlatConfig.Plugin,
-): TSESLint.FlatConfig.ConfigArray => [
-  {
-    name: '@rxlint/recommended',
-    plugins: {
-      '@rxlint': plugin,
-    },
-    rules: recommendedClassic.rules,
+): TSESLint.FlatConfig.Config => ({
+  name: '@rxlint/recommended',
+  plugins: {
+    '@rxlint': plugin,
   },
-];
+  rules: recommendedClassic.rules,
+});

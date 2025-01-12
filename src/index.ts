@@ -1,5 +1,4 @@
-import type { Linter } from '@typescript-eslint/utils/ts-eslint';
-
+import type { TSESLint } from '@typescript-eslint/utils';
 import disableTypeChecked from './configs/disable-type-checked';
 import disableTypeCheckedClassic from './configs/disable-type-checked-classic';
 import recommended from './configs/recommended';
@@ -9,19 +8,25 @@ import rules from './rules';
 const { name, version } = require('../package.json');
 
 const plugin = {
-  configs: {},
+  configs: {} as ReturnType<typeof createConfigs>,
   meta: {
     name,
     version,
   },
   rules,
-} satisfies Linter.Plugin;
+} satisfies TSESLint.FlatConfig.Plugin;
 
-Object.assign(plugin.configs, {
-  'recommended-classic': recommendedClassic,
-  'disable-type-checked-classic': disableTypeCheckedClassic,
+const createConfigs = (plugin: TSESLint.FlatConfig.Plugin) => ({
+  'recommended-classic':
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    recommendedClassic as any as TSESLint.FlatConfig.Config,
+  'disable-type-checked-classic':
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    disableTypeCheckedClassic as any as TSESLint.FlatConfig.Config,
   recommended: recommended(plugin),
   'disable-type-checked': disableTypeChecked(plugin),
 });
+
+Object.assign(plugin.configs, createConfigs(plugin));
 
 export = plugin;
