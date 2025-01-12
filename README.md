@@ -5,60 +5,111 @@
 [![Downloads](http://img.shields.io/npm/dm/@rxlint/eslint-plugin.svg)](https://www.npmjs.com/package/@rxlint/eslint-plugin)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/manbearwiz/eslint-plugin-rxjs/release.yml)](https://github.com/manbearwiz/eslint-plugin-rxjs/actions/workflows/release.yml)
 
-This package contains a bunch of ESLint rules for RxJS. Essentially, it's a re-implementation of the rules that are in the [`rxjs-tslint-rules`](https://github.com/cartant/rxjs-tslint-rules) package. (The Angular-specific rules in `rxjs-tslint-rules` have been re-implemented in [`eslint-plugin-rxjs-angular`](https://github.com/cartant/eslint-plugin-rxjs-angular).)
+This package is a fork of the package [`cartant/eslint-plugin-rxjs`](https://github.com/cartant/eslint-plugin-rxjs) with trimmed and updated dependencies to work with both eslint 8 and 9. Angular-specific rules are in [`@rxlint/eslint-plugin-angular`](https://github.com/manbearwiz/eslint-plugin-rxjs-angular).
 
-Some of the rules are rather opinionated and are not included in the `recommended` configuration. Developers can decide for themselves whether they want to enable opinionated rules.
-
-Almost all of these rules require the TypeScript parser for ESLint.
+Some rules are opinionated and not included in the `recommended` configuration. Developers can enable them as needed. Most rules require the TypeScript parser for ESLint but there is a config provided to disable those.
 
 ## Installation
 
-Install the ESLint TypeScript parser using npm:
+Install the required packages:
 
 ```sh
-npm install --save-dev eslint typescript @typescript-eslint/parser @rxlint/eslint-plugin --save-dev
+npm install --save-dev eslint typescript @typescript-eslint/parser @rxlint/eslint-plugin
 # or
 yarn add --dev eslint typescript @typescript-eslint/parser @rxlint/eslint-plugin
 ```
 
 ## Configuration
 
-Configure the `parser` and the `parserOptions` for ESLint. Here, I use a `.eslintrc.js` file for the configuration:
+This plugin works with ESLint v8 (`eslintrc`) and v9 (`eslint.config.js`) configuration formats.
+
+### ESLint v8 Configuration
+
+Add `@rxlint/recommended` to your `extends` array:
+
+`.eslintrc.js`
 
 ```js
-const { join } = require("path");
 module.exports = {
+  files: ["**/*.ts"],
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
+    "plugin:@rxlint/recommended",
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
     project: true,
-    sourceType: "module"
+    sourceType: "module",
   },
-  plugins: ["@rxlint"],
-  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   rules: {
     "@rxlint/no-async-subscribe": "error",
     "@rxlint/no-ignored-observable": "error",
     "@rxlint/no-ignored-subscription": "error",
     "@rxlint/no-nested-subscribe": "error",
     "@rxlint/no-unbound-methods": "error",
-    "@rxlint/throw-error": "error"
-  }
+    "@rxlint/throw-error": "error",
+  },
 };
 ```
 
-Or, using the `recommended` configuration:
+### ESLint v9 Configuration
+
+Import the plugin and add it to the `extends` array:
+
+`eslint.config.js`
 
 ```js
-const { join } = require("path");
-module.exports = {
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaVersion: "latest",
-    project: true,
-    sourceType: "module"
+const rxjs = require("@rxlint/eslint-plugin");
+
+module.exports = [
+  {
+    files: ["**/*.ts"],
+    extends: [
+      eslint.configs.recommended,
+      tseslint.configs.recommendedTypeChecked,
+      tseslint.configs.stylisticTypeChecked,
+      rxjs.configs.recommendedTypeChecked,
+    ],
   },
-  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:@rxlint/recommended"],
+];
+```
+
+### Disable Type-Aware Linting
+
+Use the `disable-type-checked` config to turn off type-aware linting for specific file subsets.
+
+#### ESLint v8
+
+Add `@rxlint/disable-type-checked-classic` to your `extends` array:
+
+`.eslintrc.js`
+
+```js
+module.exports = {
+  files: ['**/*.{config,test,spec}.{js,ts}'],
+  extends: [
+    "plugin:@typescript-eslint/disable-type-checked",
+    "plugin:@rxlint/disable-type-checked",
+  ],
+};
+```
+
+#### ESLint v9
+
+Import the plugin and add `rxjs.config.disableTypeChecked` to the `extends` array:
+
+`eslint.config.js`
+
+```js
+module.exports = {
+  files: ['**/*.{config,test,spec}.{js,ts}'],
+  extends: [
+    tseslint.configs.disableTypeChecked,
+    rxjs.config.disableTypeChecked,
+  ],
 };
 ```
 

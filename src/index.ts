@@ -17,14 +17,17 @@ const plugin = {
 } satisfies TSESLint.FlatConfig.Plugin;
 
 const createConfigs = (plugin: TSESLint.FlatConfig.Plugin) => ({
-  'recommended-classic':
+  recommended:
     // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     recommendedClassic as any as TSESLint.FlatConfig.Config,
-  'disable-type-checked-classic':
+  'recommended-type-checked':
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    recommendedClassic as any as TSESLint.FlatConfig.Config,
+  'disable-type-checked':
     // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     disableTypeCheckedClassic as any as TSESLint.FlatConfig.Config,
-  recommended: recommended(plugin),
-  'disable-type-checked': disableTypeChecked(plugin),
+  recommendedTypeChecked: recommended(plugin),
+  disableTypeChecked: disableTypeChecked(plugin),
 });
 
 Object.assign(plugin.configs, createConfigs(plugin));
