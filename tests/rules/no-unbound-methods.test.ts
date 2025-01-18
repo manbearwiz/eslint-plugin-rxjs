@@ -1,17 +1,17 @@
-import type { TSESLint as eslint } from '@typescript-eslint/utils';
+import type {
+  InvalidTestCase,
+  ValidTestCase,
+} from '@typescript-eslint/rule-tester';
 import { stripIndent } from 'common-tags';
 import * as rule from '../../src/rules/no-unbound-methods';
 import { fromFixture, ruleTester } from '../utils';
 
 interface Tests {
-  valid: (string | eslint.ValidTestCase<never>)[];
-  invalid: eslint.InvalidTestCase<
-    keyof (typeof rule)['meta']['messages'],
-    never
-  >[];
+  valid: (string | ValidTestCase<never>)[];
+  invalid: InvalidTestCase<keyof (typeof rule)['meta']['messages'], never>[];
 }
 
-const arrowTests: Tests = {
+const arrowTests = {
   valid: [
     stripIndent`
       // arrows
@@ -46,7 +46,7 @@ const arrowTests: Tests = {
     `,
   ],
   invalid: [],
-};
+} satisfies Tests;
 
 const boundTests: Tests = {
   valid: [
@@ -83,9 +83,9 @@ const boundTests: Tests = {
     `,
   ],
   invalid: [],
-};
+} satisfies Tests;
 
-const deepTests: Tests = {
+const deepTests = {
   valid: [],
   invalid: [
     fromFixture(
@@ -146,9 +146,9 @@ const deepTests: Tests = {
       `,
     ),
   ],
-};
+} satisfies Tests;
 
-const staticTests: Tests = {
+const staticTests = {
   valid: [
     stripIndent`
       // static
@@ -183,9 +183,9 @@ const staticTests: Tests = {
     `,
   ],
   invalid: [],
-};
+} satisfies Tests;
 
-const unboundTests: Tests = {
+const unboundTests = {
   valid: [
     stripIndent`
       // unbound observable
@@ -266,7 +266,7 @@ const unboundTests: Tests = {
       `,
     ),
   ],
-};
+} satisfies Tests;
 
 ruleTester({ types: true }).run('no-unbound-methods', rule, {
   valid: [
