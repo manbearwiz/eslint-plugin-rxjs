@@ -1,4 +1,4 @@
-# @rxlint/eslint-plugin-rxjs
+# @rxlint/eslint-plugin
 
 [![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/manbearwiz/eslint-plugin-rxjs/blob/master/LICENSE)
 [![NPM version](https://img.shields.io/npm/v/@rxlint/eslint-plugin.svg)](https://www.npmjs.com/package/@rxlint/eslint-plugin)
