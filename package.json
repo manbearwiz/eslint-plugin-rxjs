@@ -43,7 +43,7 @@
     "happy-dom": "^17.4.4",
     "lefthook": "^1.7.16",
     "semantic-release": "^24.1.1",
-    "typescript": "~5.7.0",
+    "typescript": "~5.9.2",
     "vitest": "^3.0.5",
     "vitest-tiny-reporter": "^1.0.5"
   },
