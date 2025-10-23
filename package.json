@@ -41,7 +41,7 @@
     "@typescript-eslint/rule-tester": "^7.11.0 || ^8.8.1",
     "@vitest/ui": "^3.0.5",
     "happy-dom": "^20.0.0",
-    "lefthook": "^1.7.16",
+    "lefthook": "^2.0.0",
     "semantic-release": "^24.1.1",
     "typescript": "~5.9.3",
     "vitest": "^3.0.5",

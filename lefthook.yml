@@ -2,9 +2,10 @@ output:
   - failure
 
 commit-msg:
-  scripts:
-    "commitlint.sh":
-      runner: bash
+  commands:
+    commitlint:
+      run: npx commitlint --edit {1}
+      fail_text: "Commit message does not follow conventional commit format"
 
 pre-commit:
   parallel: true
@@ -19,6 +20,10 @@ pre-commit:
       fail_text: "Tests failed"
       env:
         TERM: dumb
+    package-sync:
+      glob: "package*.json"
+      run: npm ls --depth=0 --silent
+      fail_text: "Package.json and package-lock.json are out of sync. Run 'npm install' to fix."
 
 pre-push:
   parallel: true
@@ -28,3 +33,5 @@ pre-push:
       fail_text: "Tests failed"
     check_format:
       run: npx @biomejs/biome check --no-errors-on-unmatched --files-ignore-unknown=true .
+    publint:
+      run: npm run build && npx --yes publint
